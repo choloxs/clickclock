@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center">
+        <br>
+        <div>Update Race Information.</div>
+        <br>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row justify-content-md-center ">
+                <div class="col-md-auto">
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="race" placeholder="Race ID" required>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row justify-content-md-center">
+                <div class="col-md-auto">
+                    <input type="submit" value="UPDATE" class="btn" style="background-color: #ef7117;">
+                </div>
+            </div>
+        </form>
+</div>
+{% endblock %}

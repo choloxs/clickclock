@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center">
+    <br>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row justify-content-md-center">
+                <div class="col-md">
+                    <input type="text" class="form-control" name="username" aria-describedby="emailHelp" placeholder="Loft ID">
+                </div>
+            </div>
+            <div class="row justify-content-md-center ">
+                <div class="col-md">
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row justify-content-md-center">
+                <div class="col-md-auto">
+                    <input type="submit" value="Login" class="btn" style="background-color: #ef7117;">
+                </div>
+            </div>
+        </form>
+        <br>
+</div>
+{% endblock %}
+

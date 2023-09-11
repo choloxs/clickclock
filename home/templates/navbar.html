@@ -1,0 +1,57 @@
+<nav class="navbar navbar-dark fixed-top" style="background-color: #1795ef;">
+  <div class="container-fluid">
+    <div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLightNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href=""></a>
+      {% if user.is_authenticated %}
+        <a class="btn btn-outline-secondary" href="{% url 'clock' %}" style="background-color: #ef7117; " >CLOCK</a>
+      {% endif %}
+    </div>
+    <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="offcanvasLightNavbar" aria-labelledby="offcanvasLightNavbarLabel">
+      <div class="offcanvas-header " style="background-color: #1795ef;">
+        <a class="nav-link active" aria-current="page" href="" style="color:Black"><h5>Clocking System</h5></a>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body" style="background-color: White;">
+        <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'home_page' %}" style="color:Black">Home</a>
+            </li>
+           <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'register_race' %}" style="color:Black">Register</a>
+            </li>
+            {% if user.is_superuser %}
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'race' %}" style="color:Black">Update</a>
+              </li>
+            {% endif %}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'logout' %}" style="color:Black">Logout</a>
+            </li>
+          {% endif %}
+
+
+          <li class="nav-item">
+            <br>
+            <br>
+          </li>
+          <li class="nav-item">
+            <p>Thank you</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    {% if user.is_authenticated %}
+      <form class="d-flex" role="search" method=POST action="{% url 'search' %}">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search Race" aria-label="Search Race" name="search">
+        <button class="btn btn-secondary" type="submit">Search</button>
+      </form>
+    {% else %}
+      <a class="btn btn-secondary" href="{% url 'login' %}"  >Login</a>
+    {% endif %}
+  </div>
+</nav>

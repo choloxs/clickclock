@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center">
+        <div>Select race, enter the registration id, and click the 'Register' button.</div>
+        <br>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row justify-content-md-center ">
+                <div class="col-md-auto">
+                    <br>
+                    <div class="input-group input-group-lg">
+                        {{ form.race }}
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-md-center ">
+                <div class="col-md-auto">
+                    <br>
+                    <div class="input-group input-group-lg">
+                        {{ form.code }}
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row justify-content-md-center">
+                <div class="col-md-auto">
+                    <input type="submit" value="Register" class="btn" style="background-color: #ef7117;">
+                </div>
+            </div>
+        </form>
+        <br>
+</div>
+{% endblock %}
+

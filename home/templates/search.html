@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container text-center">
+        {% if exist %}
+            <h4>{{result.0.race.name}}</h4>
+            <div class="row">
+                <div class="col"><h6>{{result.0.race.start_loc}}&nbsp;&nbsp;&nbsp;&nbsp;{{result.0.race.date}}</h6></div>
+            </div>
+            <div class="row">
+                <div class="col">Start Time: {{result.0.race.date}}</div>
+            </div>
+            <div class="row">
+                <div class="col">Coordinates: {{result.0.race.latitude}}, {{result.0.race.longitude}}</div>
+            </div>
+            <div class="row">
+                <div class="col">Registered Bird: {{player}}</div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col"><h6><b>LOFT</b></h6></div>
+                <div class="col"><h6><b>REGISTRATION ID</b></h6></div>
+                <div class="col"><h6><b>CLOCK</b></h6></div>
+                <div class="col"><h6><b>DISTANCE (km)</b></h6></div>
+                <div class="col"><h6><b>TIME (h)</b></h6></div>
+                <div class="col"><h6><b>SPEED (KPH)</b></h6></div>
+                <div class="col"><h6><b>REMARKS</b></h6></div>
+            </div>
+
+            {% for res in result %}
+            <div class="row">
+                <div class="col">{{res.loft.loft_name}}</div>
+                <div class="col">{{res.code}}</div>
+                <div class="col">{{res.end_time}}</div>
+                <div class="col">{{res.distance|floatformat:6}}</div>
+                <div class="col">{{res.duration|floatformat:6}}</div>
+                <div class="col">{{res.speed|floatformat:6}}</div>
+                <div class="col">{{res.remarks}}</div>
+            </div>
+            {% endfor %}
+        {% else %}
+            Sorry, race does not exist.
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+
+
+
+
+

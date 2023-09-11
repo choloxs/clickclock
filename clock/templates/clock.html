@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center">
+        <br>
+        <div>Scratch the tag in your bird, enter the code below and click the 'CLOCK' button.</div>
+        <br>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row justify-content-md-center ">
+                <div class="col-md-auto">
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" name="key" placeholder="Enter race code here" required>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row justify-content-md-center">
+                <div class="col-md-auto">
+                    <input type="submit" value="CLOCK" class="btn" style="background-color: #ef7117;">
+                </div>
+            </div>
+        </form>
+</div>
+{% endblock %}
