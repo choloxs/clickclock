@@ -8,7 +8,7 @@ A simple Django application for pigeon race clocking.
 3. sudo apt-get install python3-venv //install virtual environment
 4. python3 -m venv env //create virtual environment
 5. source env/bin/activate //enable virtual environment
-6. pip3 install django //install django
+6. pip install Django //install django
 7. git clone https://github.com/choloxs/clickclock.git
 8. sudo apt-get install -y nginx
 9. pip install gunicorn
@@ -30,6 +30,34 @@ A simple Django application for pigeon race clocking.
 25. sudo touch django.conf
 26. sudo nano django.conf
 27. sudo nginx -t
-28. sudo ln django.conf /etc/nginx/sites-enabled
+28. sudo ln django.conf /etc/nginx/sites-enabled ##copy to nginx default if does not work: sudo nano /etc/nginx/sites-available/default
 29. sudo service nginx restart
+30. certbot
+31. Configure django settings
+In settings.py:
+add header line 'import os'
+edit the ALLOWED HOSTS
+set DEBUG=False
+edit the STATIC line with:
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+    
+> python manage.py collectstatic
+python manage.py createsuperuser
+python manage.py makemigrations
+python manage.py migrate
+
+32. insert the following line in sites-available/default
+    location /static/ {
+        alias /home/user/projectname/static/;
+    }
+
+34. sudo service nginx restart
+
+# To update application from github
+source env/bin/activate //enable virtual environment
+git clone https://github.com/choloxs/clickclock.git
+run migrations
+
+#       Code
