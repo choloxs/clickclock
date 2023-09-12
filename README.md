@@ -44,9 +44,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
     
 > python manage.py collectstatic
-python manage.py createsuperuser
+
 python manage.py makemigrations
 python manage.py migrate
+python manage.py createsuperuser
 
 32. insert the following line in sites-available/default
     location /static/ {
