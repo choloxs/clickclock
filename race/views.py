@@ -23,7 +23,7 @@ def haversine(lat1, lon1, lat2, lon2):
 def race(request):
     submitted = False
     user = request.user
-    if user.is_authenticated and user.username == 'admin':
+    if user.is_authenticated and user.is_superuser:
         if request.method == "POST":
             race_id = request.POST['race']
             roll = Roll.objects.filter(race=race_id)
