@@ -5,7 +5,7 @@ A simple Django application for pigeon race clocking.
 # Installation (Ubuntu 22)
 The following steps were taken from https://www.youtube.com/watch?v=7O1H9kr1CsA&ab_channel=CloudWithDjango but was implemented in Raspberry Pi 4 with Ubuntu 22 Server (64-bit) and a public IP address.
 1. Update and upgrade your server.
->sudo apt-get update
+>sudo apt-get update  
 >sudo apt-get upgrade
 3. sudo apt-get install python3-venv //install virtual environment
 4. python3 -m venv env //create virtual environment
