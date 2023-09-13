@@ -31,8 +31,7 @@ repository name.  It is recommended to manage your repository's file hierarchy s
 > cd /etc/supervisor/conf.d/
 12. Create a config file named gunicorn.conf  
 > sudo touch gunicorn.conf
-13. Edit gunicorn.conf file.  Please refer to the content of gunicorn.conf file provided in this repository or you can move the file in repository to the /etc/supervisor/conf.d/ directory.  
-The 'user' and 'projectname' in the content should be replaced with your user and project names.
+13. Edit gunicorn.conf file.  Please refer to the content of gunicorn.conf file provided in this repository or you can move the file in repository to the /etc/supervisor/conf.d/ directory. The 'user' and 'projectname' in the content should be replaced with your user and project names.
 > sudo nano gunicorn.conf
 14. Create the following directory for gunicorn logs.  
 > sudo mkdir /var/log/gunicorn
@@ -43,9 +42,10 @@ result to 'available'
 > sudo supervisorctl update  
 
 result to 'added process group'
-> sudo supervisorctl status  
-
+> sudo supervisorctl status
 result to 'RUNNING'
+
+
 16. Go to the /etc/nginx directory.   
 > cd ..  
 > cd ..
