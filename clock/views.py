@@ -68,7 +68,7 @@ def clock(request):
             roll = Roll.objects.filter(key=key)
             if roll:
                 if roll[0].loft.loft_id == user:
-                    clock_time = datetime.now(timezone.utc)
+                    clock_time = datetime.now()
                     duration = clock_time - roll[0].race.start_time
                     duration_hours = duration.total_seconds()/3600
                     for obj in roll:

@@ -30,7 +30,7 @@ A simple Django application for pigeon race clocking.
 25. sudo touch django.conf
 26. sudo nano django.conf
 27. sudo nginx -t
-28. sudo ln django.conf /etc/nginx/sites-enabled ##copy to nginx default if does not work: sudo nano /etc/nginx/sites-available/default
+28. sudo ln /etc/nginx/sites-available/django.conf /etc/nginx/sites-enabled //comment all line in sites-enabled/default
 29. sudo service nginx restart
 30. certbot
 31. Configure django settings
