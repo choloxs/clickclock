@@ -43,6 +43,7 @@ result to 'available'
 
 result to 'added process group'
 > sudo supervisorctl status
+
 result to 'RUNNING'
 
 
