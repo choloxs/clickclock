@@ -19,24 +19,26 @@
             </div>
             <br>
             <div class="row">
-                <div class="col"><h6><b>LOFT</b></h6></div>
-                <div class="col"><h6><b>REGISTRATION ID</b></h6></div>
-                <div class="col"><h6><b>CLOCK</b></h6></div>
-                <div class="col"><h6><b>DISTANCE (km)</b></h6></div>
-                <div class="col"><h6><b>TIME (h)</b></h6></div>
-                <div class="col"><h6><b>SPEED (KPH)</b></h6></div>
-                <div class="col"><h6><b>REMARKS</b></h6></div>
+                <div class="col d-block"><h6><b>RANK</b></h6></div>
+                <div class="col d-block"><h6><b>LOFT</b></h6></div>
+                <div class="col d-block"><h6><b>ID</b></h6></div>
+                <div class="col d-block"><h6><b>SPEED (KPH)</b></h6></div>
+                <div class="col d-none d-sm-none d-md-block"><h6><b>CLOCK</b></h6></div>
+                <div class="col d-none d-sm-none d-md-none d-lg-block"><h6><b>DISTANCE (km)</b></h6></div>
+                <div class="col d-none d-sm-none d-md-none d-lg-none d-xl-block"><h6><b>TIME (h)</b></h6></div>
+                <div class="col d-none d-sm-block"><h6><b>REMARKS</b></h6></div>
             </div>
-
             {% for res in result %}
             <div class="row">
-                <div class="col">{{res.loft.loft_name}}</div>
-                <div class="col">{{res.code}}</div>
-                <div class="col">{{res.end_time}}</div>
-                <div class="col">{{res.distance|floatformat:6}}</div>
-                <div class="col">{{res.duration|floatformat:6}}</div>
-                <div class="col">{{res.speed|floatformat:6}}</div>
-                <div class="col">{{res.remarks}}</div>
+                <div class="col d-block">{{res.index}}</div>
+                <div class="col d-block">{{res.loft.loft_name}}</div>
+                <div class="col d-block">{{res.code}}</div>
+                <div class="col d-block">{{res.speed|floatformat:6}}</div>
+                <div class="col d-none d-sm-none d-md-block">{{res.end_time}}</div>
+                <div class="col d-none d-sm-none d-md-none d-lg-block">{{res.distance|floatformat:6}}</div>
+                <div class="col d-none d-sm-none d-md-none d-lg-none d-xl-block">{{res.duration|floatformat:6}}</div>
+                <div class="col d-none d-sm-block">{{res.remarks}}</div>
+
             </div>
             {% endfor %}
         {% else %}

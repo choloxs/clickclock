@@ -5,7 +5,7 @@ from clock.forms import Roll
 
 
 def home_page(request):
-    name = "Home Page"
+    name = "Damian Clocking System"
     return render(request, "home.html", {"name": name})
 
 
@@ -19,7 +19,10 @@ def search(request):
             player = ''
         else:
             res = result.order_by("-speed")
+            count = 0
             for obj in res:
+                count += 1
+                obj.index = count
                 if obj.end_time is not None:
                     obj.end_time = obj.end_time.isoformat()
             player = str(len(res))
