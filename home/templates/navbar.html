@@ -8,7 +8,7 @@
     </div>
     <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="offcanvasLightNavbar" aria-labelledby="offcanvasLightNavbarLabel">
       <div class="offcanvas-header " style="background-color: #1795ef;">
-        <a class="nav-link active" aria-current="page" href="" style="color:Black"><h5>Clocking System</h5></a>
+        <a class="nav-link active" aria-current="page" href="" style="color:Black"><h5>{{ user.username }}</h5></a>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body" style="background-color: White;">
@@ -33,6 +33,9 @@
                 <a class="nav-link active" aria-current="page" href="{% url 'race' %}" style="color:Black">Update</a>
               </li>
             {% endif %}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'password' %}" style="color:Black">Change Password</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'logout' %}" style="color:Black">Logout</a>
             </li>

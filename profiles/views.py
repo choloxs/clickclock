@@ -1,6 +1,19 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.forms import PasswordChangeForm
+from django.urls import reverse_lazy
+
+
+class PasswordChanged(PasswordChangeView):
+    form_class = PasswordChangeForm
+    success_url = reverse_lazy('password_success')
+
+
+def password_success(request):
+    messages.success(request, "Password change successfully!")
+    return redirect('home_page')
 
 
 def login_user(request):
