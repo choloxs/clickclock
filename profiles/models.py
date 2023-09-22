@@ -13,3 +13,15 @@ class LoftProfile(models.Model):
 
     def __str__(self):
         return self.loft_name
+
+
+class RegProfile(models.Model):
+    loft_name = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    zip_code = models.CharField(max_length=4)
+    mobile_number = models.CharField(max_length=13)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.loft_name

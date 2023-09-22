@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center">
+    <br>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row justify-content-md-center">
+                <div class="col-md">
+                    <select name='loft' class="form-select form-select-lg">
+                        <option selected>Select Loft Name</option>
+                        {% for reg in registry %}
+                        <option value="{{ reg.0 }}">{{ reg.0 }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row justify-content-md-center ">
+                <div class="col-md">
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" name="latitude" placeholder="Latitude">
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-md-center ">
+                <div class="col-md">
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control" name="longitude" placeholder="Longitude">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row justify-content-md-center">
+                <div class="col-md-auto">
+                    <input type="submit" value="Register Loft" class="btn" style="background-color: #ef7117;">
+                </div>
+            </div>
+        </form>
+        <br>
+</div>
+{% endblock %}
+
