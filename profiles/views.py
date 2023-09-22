@@ -81,10 +81,11 @@ def register_loft(request):
             user_number = max_id + 1
             username = str(user_number)
             password = username+registration[0].last_name
+            password = password.lower()
             user = User.objects.create(username=username, password=password)
             user.email = registration[0].email
-            user.first_name = registration[0].first_name
-            user.last_name = registration[0].last_name
+            user.first_name = registration[0].first_name.upper()
+            user.last_name = registration[0].last_name.upper()
             user.save()
 
             loft_id = User.objects.get(username=username)

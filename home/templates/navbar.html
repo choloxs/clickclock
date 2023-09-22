@@ -6,7 +6,7 @@
       </button>
       <a class="navbar-brand" href=""></a>
     </div>
-    <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="offcanvasLightNavbar" aria-labelledby="offcanvasLightNavbarLabel">
+      <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="offcanvasLightNavbar" aria-labelledby="offcanvasLightNavbarLabel">
       <div class="offcanvas-header " style="background-color: #1795ef;">
         <a class="nav-link active" aria-current="page" href="" style="color:Black"><h5>{{ user.username }}</h5></a>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -29,15 +29,23 @@
               <a class="nav-link active" aria-current="page" href="{% url 'register_race' %}" style="color:Black">Register</a>
             </li>
             {% if user.is_superuser %}
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'race' %}" style="color:Black">Update</a>
-              </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:Black">Admin Functions</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'race' %}" style="color:Black">Update Race</a></li>
+                <li><a class="dropdown-item" href="{% url 'register_loft' %}" style="color:Black">Register Loft</a></li>
+              </ul>
+            </li>
             {% endif %}
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'password' %}" style="color:Black">Change Password</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'logout' %}" style="color:Black">Logout</a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'register_profile' %}" style="color:Black">Sign Up</a>
             </li>
           {% endif %}
 
